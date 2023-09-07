@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>document</title>
+  </head>
+  <body>
+    <label for="comboBox">Selecciona una opción:</label>
+    <select id="comboBox"></select>
+    <!-- <script src="main.js"></script> -->
+    <script>
+      // Obtener una referencia al elemento ComboBox por su ID
+      var comboBox = document.getElementById("comboBox");
+
+      // Hacer una solicitud a la API para obtener los resultados de la DB
+      fetch("http://localhost:5215/api/Gasoductos")
+        .then((response) => response.json())
+        .then((data) => {
+          // Iterar sobre los resultados y agregarlos como opciones en el ComboBox
+          data.forEach(function (item) {
+            var opcion = document.createElement("option");
+            opcion.text = item.nombre; // Reemplaza "nombre" con el campo que deseas mostrar
+            comboBox.add(opcion);
+          });
+        })
+        .catch((error) => {
+          console.error("Error al obtener los datos de la API: " + error);
+        });
+    </script>
+  </body>
+</html>
