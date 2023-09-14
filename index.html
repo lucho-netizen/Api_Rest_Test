@@ -12,7 +12,7 @@
       var comboBox = document.getElementById("comboBox");
 
       // Hacer una solicitud a la API para obtener los resultados de la DB
-      fetch("http://localhost:5215/api/Gasoductos")
+      fetch("https://localhost:7293/api/Gasoductos/3")
         .then((response) => response.json())
         .then((data) => {
           // Iterar sobre los resultados y agregarlos como opciones en el ComboBox
